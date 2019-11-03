@@ -1,21 +1,25 @@
-# MTEC2120_haunted_classroom
-Projection mapping + Unity project of a haunted classroom setting.
+# MTEC2120: Haunted Classroom
+Projection mapping + Unity project of a door to a haunted classroom.
 
 
-## How it works:
+## Outline:
 
-Wait 5 seconds to open the door. **(timeUntilNextScare)**
-Door slams shut after 4 seconds. **(scareDuration)**
+1. Wait 5 seconds. **(timeUntilNextScare)**
 
-There are 3(?) scenarios. **(scareOptions[])**
-1. Zombie stands idle in the classroom, notices you watching, then lunges at you
-2. Desks and chairs float
-3. Creepy twins stare and laugh ominously??
+2. Then, open the door & select a scenario at random:
+  * Zombie stands twitching in the classroom, notices you watching him, and lunges at you.
+  * Desks and chairs float around the room.
+  * Creepy twins stare and laugh ominously. (maybe)
 
-One scenario is selected at random every time the door opens. **(randomRange: 0, 1, 2)**
+3. Instantiate/enable any GameObjects specific to that scenario. (Zombie, twins, etc.)
 
-The room, door, furniture, and outdoor scenery should always remain active (checkbox checked), no matter which scenario is picked.
-But any game objects that are unique to the scenario chosen (ex. zombie, twins) should only be activated when the scenario is first called, and deactivated once the timer is up.
+4. Start a timer for 4 seconds. **(scareDuration)**
+
+5. Play the creepy animations & sound effects for the chosen scenario.
+
+6. When **scareDuration** runs out, slam the door shut and destroy those GameObjects. 
+
+7. Repeat.
 
 ## Team members:
 
