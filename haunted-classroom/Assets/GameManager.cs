@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     public Animator door;
 
+    GameObject temp;
+    public GameObject zombie;
+
     public AudioSource open;
     public AudioSource close;
 
@@ -51,7 +54,7 @@ public class GameManager : MonoBehaviour
           scareDuration += Time.deltaTime;
         }
 
-        // show's over, close the door and destroy stuff
+        // show's over. close the door and destroy stuff
         if (scareDuration >= 4f) {
           // close door
           door.SetBool("open", false);
@@ -59,32 +62,40 @@ public class GameManager : MonoBehaviour
           // reset timer
           scareDuration = 0f;
 
-          // search scene for gameobjects to destroy, based on random # called earlier (whichScare)
+          // destroy temp gameobject
+          Destroy(temp, 0.4f);
         }
     }
 
     void ZombieScare() {
-      // instantiate zombie
+      // spawn zombie
+      temp = Instantiate(zombie);
 
-      // play animations
       // and groaning sound effects
     }
 
     void FloatingObjectsScare() {
+      // are we spawning a bunch of desks + chairs or are they already in the room?
+
       // play desk/chair animations
       // and spooky theme
+
+      Debug.Log("floating chairs and stuff");
     }
 
     void TwinsScare() {
-      // instantiate zombie
+      // spawn twins
 
       // animations? i don't think they need any
       // and creepy laughter sound effects
+
+      Debug.Log("creepy twins");
     }
 
     void doorOpenSoundEffect() {
       open.Play();
     }
+
     void doorCloseSoundEffect() {
       close.Play();
     }
