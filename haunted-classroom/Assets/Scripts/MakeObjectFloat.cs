@@ -11,7 +11,7 @@ public class MakeObjectFloat : MonoBehaviour
       {
           transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 3), transform.position.z);
       } else {
-          transform.position = new Vector3(transform.position.x, 0.87f, transform.position.z);
+          transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
       }
     }
 }
