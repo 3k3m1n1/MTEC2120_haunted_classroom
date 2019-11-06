@@ -320,9 +320,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1612054063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a862180036e8b40808737c04a08229, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b7fac25c49d41dc94bddc59a997ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 0}
+  open: {fileID: 0}
+  close: {fileID: 0}
   DeskAndChairprefab: {fileID: 4188641853085703995, guid: c853861bbab22a9479d359dc7d400e44,
     type: 3}
 --- !u!4 &1612054065

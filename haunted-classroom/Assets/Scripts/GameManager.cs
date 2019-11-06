@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     public AudioSource open;
     public AudioSource close;
 
+    //public GameObject DeskAndChairprefab;
+    public GameObject DeskAndChair;
+
+    public bool MoveDeskAndChair;
+
     // Update is called once per frame
     void Update()
     {
@@ -71,8 +76,16 @@ public class GameManager : MonoBehaviour
     }
 
     void FloatingObjectsScare() {
-      // play desk/chair animations
-      // and spooky theme
+
+        //Instantiate(DeskAndChairprefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        if(MoveDeskAndChair == true)
+        {
+            DeskAndChair.transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 2), transform.position.z);
+
+        }
+        else { }
+        // play desk/chair animations
+        // and spooky theme
     }
 
     void TwinsScare() {
