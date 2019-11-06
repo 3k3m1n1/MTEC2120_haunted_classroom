@@ -9,9 +9,9 @@ public class MakeObjectFloat : MonoBehaviour
     {
       if(GameManager.moveStuff)
       {
-          transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 2), transform.position.z);
+          transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 3), transform.position.z);
       } else {
-          // transform.position =
+          transform.position = new Vector3(transform.position.x, 0.87f, transform.position.z);
       }
     }
 }

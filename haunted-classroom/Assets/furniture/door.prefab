@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 6657823677351620558}
-  zombie: {fileID: 6703671803296965280, guid: d3e10c5de6472ab4fbfc4fee6b0bdb75, type: 3}
-  crawler: {fileID: -927199367670048503, guid: ba14f338359f0b94099f792fa28e5d3f, type: 3}
+  zombie: {fileID: 1750967423695468915, guid: c601f6a0fa18e4bc7849410fa5a52c95, type: 3}
+  crawler: {fileID: 5863233151623761218, guid: d2a8c1f0c8f6d4974913c8ffba2fc3a7, type: 3}
   open: {fileID: 6716227544125657435}
   close: {fileID: 6716227544125657428}
 --- !u!1 &6716935084540572144

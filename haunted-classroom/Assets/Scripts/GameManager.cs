@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
             CrawlerScare();
           }
 
+          Debug.Log(whichScare);
+
           // open door
           door.SetBool("open", true);
 
@@ -66,12 +68,14 @@ public class GameManager : MonoBehaviour
 
           // destroy temp gameobject in .4 seconds
           Destroy(temp, 0.4f);
+          moveStuff = false;
         }
     }
 
     void ZombieScare() {
       // spawn zombie
       temp = Instantiate(zombie);
+      temp.GetComponent<AudioSource>().Play();
     }
 
     void FloatingObjectsScare() {
