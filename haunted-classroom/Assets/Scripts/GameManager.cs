@@ -1,22 +1,25 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // VARIABLES
     float timeUntilNextScare = 0f;
     float scareDuration = 0f;
     int whichScare;
 
     public Animator door;
 
+    GameObject temp;
+    public GameObject zombie;
+    public GameObject crawler;
+
     public AudioSource open;
     public AudioSource close;
 
-    //public GameObject DeskAndChairprefab;
-    public GameObject DeskAndChair;
-
-    public bool MoveDeskAndChair;
+    [HideInInspector]
+    public static bool moveStuff;
 
     // Update is called once per frame
     void Update()
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
           } else if (whichScare == 1) {
             FloatingObjectsScare();
           } else if (whichScare == 2) {
-            TwinsScare();
+            CrawlerScare();
           }
 
           // open door
@@ -40,9 +43,6 @@ public class GameManager : MonoBehaviour
 
           // reset timer
           timeUntilNextScare = 0f;
-
-          // DEBUG: print result to console
-          Debug.Log(whichScare);
 
         }
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
           scareDuration += Time.deltaTime;
         }
 
-        // show's over, close the door and destroy stuff
+        // show's over. close the door and destroy stuff
         if (scareDuration >= 4f) {
           // close door
           door.SetBool("open", false);
@@ -64,40 +64,30 @@ public class GameManager : MonoBehaviour
           // reset timer
           scareDuration = 0f;
 
-          // search scene for gameobjects to destroy, based on random # called earlier (whichScare)
+          // destroy temp gameobject in .4 seconds
+          Destroy(temp, 0.4f);
         }
     }
 
     void ZombieScare() {
-      // instantiate zombie
-
-      // play animations
-      // and groaning sound effects
+      // spawn zombie
+      temp = Instantiate(zombie);
     }
 
     void FloatingObjectsScare() {
-
-        //Instantiate(DeskAndChairprefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        if(MoveDeskAndChair == true)
-        {
-            DeskAndChair.transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 2), transform.position.z);
-
-        }
-        else { }
-        // play desk/chair animations
-        // and spooky theme
+      // this variable is our cue to move. if it equals true, the stuff floats. if not, they stay on the ground.
+      moveStuff = true;
     }
 
-    void TwinsScare() {
-      // instantiate zombie
-
-      // animations? i don't think they need any
-      // and creepy laughter sound effects
+    void CrawlerScare() {
+      // spawn crawler
+      temp = Instantiate(crawler);
     }
 
     void doorOpenSoundEffect() {
       open.Play();
     }
+
     void doorCloseSoundEffect() {
       close.Play();
     }
